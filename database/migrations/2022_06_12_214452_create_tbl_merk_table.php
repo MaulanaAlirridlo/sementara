@@ -14,7 +14,9 @@ class CreateTblMerkTable extends Migration
     public function up()
     {
         Schema::create('tbl_merk', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_merk', 20);
+            $table->primary('id_merk');
+            $table->string('nama_merk', 40);
             $table->timestamps();
         });
     }
