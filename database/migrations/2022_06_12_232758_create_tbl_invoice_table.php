@@ -15,8 +15,9 @@ class CreateTblInvoiceTable extends Migration
     {
         Schema::create('tbl_invoice', function (Blueprint $table) {
             $table->string('id_invoice', 20);
-            $table->primary('id_pesanan');
-            $table->primary('id_pengguna');
+            $table->primary('id_invoice');
+            $table->foreignId('id_pesanan');
+            $table->foreignId('id_pengguna');
             $table->dateTime('tanggal_dibuat', $precision = 0);
         });
     }
