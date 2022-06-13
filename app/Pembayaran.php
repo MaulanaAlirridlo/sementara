@@ -10,4 +10,15 @@ class Pembayaran extends Model
     use HasFactory;
 
     protected $table = 'tbl_pembayaran';
+
+    public function pesanan()
+    {
+        return $this->belongsTo(Pesanan::class);
+    }
+
+    public function pengguna()
+    {
+        return $this->belongsTo(Pengguna::class);
+    }
+
 }
