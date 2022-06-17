@@ -17,7 +17,7 @@ class AdminLoginTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $this->get('/masuk')->assertStatus(200);
+        $this->get('admin/login')->assertStatus(200);
     }
 
     public function testAdminMasuk()
