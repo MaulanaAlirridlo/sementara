@@ -1,0 +1,372 @@
+{
+  "id": "d7949ace-c875-47c3-a359-1109a9459a04",
+  "version": "2.0",
+  "name": "jalurbelanda",
+  "url": "http://127.0.0.1:8000/admin/login",
+  "tests": [{
+    "id": "dba503a5-a1ff-43e2-839e-379e82c6deff",
+    "name": "user_mendaftar",
+    "commands": []
+  }, {
+    "id": "3cfa37b1-0e7a-4472-b8fe-88fda4a8fb1a",
+    "name": "user_masuk",
+    "commands": [{
+      "id": "97951e93-fe9a-4b7e-90f8-1894d84e0dce",
+      "comment": "",
+      "command": "open",
+      "target": "/masuk",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "faeb3a6c-f441-4b75-a90b-b993a5204429",
+      "comment": "",
+      "command": "type",
+      "target": "id=inp_email",
+      "targets": [
+        ["id=inp_email", "id"],
+        ["name=email", "name"],
+        ["css=#inp_email", "css:finder"],
+        ["xpath=//input[@id='inp_email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "pengguna@email.com"
+    }, {
+      "id": "97c594c8-609b-4d0e-88b8-ae843867422c",
+      "comment": "",
+      "command": "type",
+      "target": "id=inp_password",
+      "targets": [
+        ["id=inp_password", "id"],
+        ["name=password", "name"],
+        ["css=#inp_password", "css:finder"],
+        ["xpath=//input[@id='inp_password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "pengguna123"
+    }, {
+      "id": "42924077-386a-490d-9357-76f5efdb31dc",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=inp_password",
+      "targets": [
+        ["id=inp_password", "id"],
+        ["name=password", "name"],
+        ["css=#inp_password", "css:finder"],
+        ["xpath=//input[@id='inp_password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "2c5848d3-5629-4285-8aa0-aace5ef67f3d",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Jalur Belanda — Beranda",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0d6bcc6e-e4cc-4b34-ab36-9b1edd9428e6",
+    "name": "user_menambahkan_produk_ke_kranjang",
+    "commands": [{
+      "id": "050c08bc-360f-4c94-8a17-7adabe8ca4c8",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/produk",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76013d5d-0d44-41db-96d8-1d1f8ee71d85",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c523dae2-6f69-468c-beab-4a845e7598fc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kursi Bagus",
+      "targets": [
+        ["linkText=Kursi Bagus", "linkText"],
+        ["css=.col-sm-6:nth-child(1) .block-4-text a", "css:finder"],
+        ["xpath=//a[contains(text(),'Kursi Bagus')]", "xpath:link"],
+        ["xpath=(//a[@href='http://127.0.0.1:8000/produk/detail/BRG2206101'])[2]", "xpath:href"],
+        ["xpath=//h3/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kursi Bagus')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "850af3d7-829d-4060-8d6a-67a8c1a83213",
+      "comment": "",
+      "command": "click",
+      "target": "css=.js-btn-plus",
+      "targets": [
+        ["css=.js-btn-plus", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc02eba9-d9b7-4bdc-8014-45db6560ef9d",
+      "comment": "",
+      "command": "click",
+      "target": "name=simpan",
+      "targets": [
+        ["name=simpan", "name"],
+        ["css=.buy-now", "css:finder"],
+        ["xpath=//button[@name='simpan']", "xpath:attributes"],
+        ["xpath=//p/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d16428d-b152-4efc-945b-412363a7bfac",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[3]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "SUCCESS!! Kursi Bagus berhasil di tambahkan ke keranjang\\n×"
+    }]
+  }, {
+    "id": "0fda1930-d118-4563-819e-562891168989",
+    "name": "user_melakukan_checkout",
+    "commands": [{
+      "id": "a42f434d-6d76-4c85-b421-0ed047d12739",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/keranjang",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3031c4f3-12ca-4282-a420-dec4ffb4ed93",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1382x744",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0fc4cea6-edd7-4ba1-8443-f516e305a25a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-lg",
+      "targets": [
+        ["css=.btn-lg", "css:finder"],
+        ["xpath=//a[contains(text(),'Proses Checkout')]", "xpath:link"],
+        ["xpath=//a[@href='http://127.0.0.1:8000/checkout']", "xpath:href"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5d995f98-1087-4110-9b5f-23f46b8d2a3e",
+      "comment": "",
+      "command": "click",
+      "target": "id=select_alamat",
+      "targets": [
+        ["id=select_alamat", "id"],
+        ["name=alamat", "name"],
+        ["css=#select_alamat", "css:finder"],
+        ["xpath=//select[@id='select_alamat']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4003b459-6b85-4598-8f07-db4263c3eda9",
+      "comment": "",
+      "command": "select",
+      "target": "id=select_alamat",
+      "targets": [],
+      "value": "label=Gunakan Alamat Pribadi"
+    }, {
+      "id": "7c164c8b-96bb-4ad6-8877-8e869baa208e",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,523)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b93ff598-a064-4959-bb65-688f0dc56435",
+      "comment": "",
+      "command": "click",
+      "target": "id=kurir",
+      "targets": [
+        ["id=kurir", "id"],
+        ["name=kurir", "name"],
+        ["css=#kurir", "css:finder"],
+        ["xpath=//select[@id='kurir']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/div[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec9258ec-5b8c-4d51-b22a-c139397b9bc1",
+      "comment": "",
+      "command": "select",
+      "target": "id=kurir",
+      "targets": [],
+      "value": "label=JNE"
+    }, {
+      "id": "5343776f-ab1b-4356-8baf-1d1187aa0246",
+      "comment": "",
+      "command": "click",
+      "target": "id=layanan",
+      "targets": [
+        ["id=layanan", "id"],
+        ["name=layanan", "name"],
+        ["css=#layanan", "css:finder"],
+        ["xpath=//select[@id='layanan']", "xpath:attributes"],
+        ["xpath=//div[2]/div/div[4]/div[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbe8a50e-38d9-4c04-8322-4b4bcb35fce1",
+      "comment": "",
+      "command": "select",
+      "target": "id=layanan",
+      "targets": [],
+      "value": "label=OKE 3-4 hari Rp. 1680000"
+    }, {
+      "id": "f3598c3a-5669-433b-a885-2c76ea746baa",
+      "comment": "",
+      "command": "click",
+      "target": "name=keterangan",
+      "targets": [
+        ["name=keterangan", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//textarea[@name='keterangan']", "xpath:attributes"],
+        ["xpath=//div[5]/textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ecf8dfd-e5d7-4962-ace8-36650f055c29",
+      "comment": "",
+      "command": "type",
+      "target": "name=keterangan",
+      "targets": [
+        ["name=keterangan", "name"],
+        ["css=.form-group:nth-child(5) > .form-control", "css:finder"],
+        ["xpath=//textarea[@name='keterangan']", "xpath:attributes"],
+        ["xpath=//div[5]/textarea", "xpath:position"]
+      ],
+      "value": "harap hati-hati dalam mengirim (lorem ipsum)"
+    }, {
+      "id": "c8c0312e-5b89-4598-beea-35c93b9872fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-white",
+      "targets": [
+        ["css=.text-white", "css:finder"],
+        ["xpath=//div[@onclick='bayarManual()']", "xpath:attributes"],
+        ["xpath=//div[3]/div/div/div/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "758445e3-90e8-4965-922c-12b28adf81ad",
+      "comment": "",
+      "command": "click",
+      "target": "id=simpan",
+      "targets": [
+        ["id=simpan", "id"],
+        ["name=simpan", "name"],
+        ["css=#simpan", "css:finder"],
+        ["xpath=//button[@id='simpan']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4410e98-3653-473c-aca4-909d6652263d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert-success",
+      "targets": [
+        ["css=.alert-success", "css:finder"],
+        ["xpath=//div[3]/div/div/div/div", "xpath:position"]
+      ],
+      "value": "SUCCESS!! Pesanan Berhasil Di Simpan\\n×"
+    }]
+  }, {
+    "id": "9f60d3c5-83ef-473c-bd19-fe37a36c7290",
+    "name": "admin_masuk",
+    "commands": [{
+      "id": "42f9024f-7371-4c4a-ad7a-70455a57d272",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8000/admin/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14a7b4da-1e52-44a3-9eef-b0ea6a5f30b5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "699x728",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "edcf62a2-ad76-4669-99c9-e25deb48d083",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=.form-group:nth-child(3) > .form-control", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "admin@email.com"
+    }, {
+      "id": "7b01ab50-7aef-421a-abbb-03324521edcf",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "admin123"
+    }, {
+      "id": "ee15317b-2e01-4d58-a93c-896416a169d4",
+      "comment": "",
+      "command": "click",
+      "target": "name=simpan",
+      "targets": [
+        ["name=simpan", "name"],
+        ["css=.btn", "css:finder"],
+        ["xpath=//button[@name='simpan']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Masuk')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ec9c792-eb3f-4a7a-87de-8aafe1d57699",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.logo-lg",
+      "targets": [
+        ["css=.logo-lg", "css:finder"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Jalur Belanda')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2987eaea-d87e-4b95-8366-d12a07524d29",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "Jalur Belanda | Beranda",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "837ae0f1-8be6-49b3-bd1d-0d09cec1a0e2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["dba503a5-a1ff-43e2-839e-379e82c6deff"]
+  }],
+  "urls": ["http://127.0.0.1:8000/", "http://127.0.0.1:8000/produk", "http://127.0.0.1:8000/keranjang", "http://127.0.0.1:8000/admin/login"],
+  "plugins": []
+}

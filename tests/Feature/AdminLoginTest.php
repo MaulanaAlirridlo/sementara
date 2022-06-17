@@ -30,7 +30,7 @@ class AdminLoginTest extends TestCase
             "simpan" => true
         ];
 
-        $this->post('admin/login', $admin)
+        $this->post('/admin/login', $admin)
         ->assertRedirect('/admin');
     }
 }
