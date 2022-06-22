@@ -7,10 +7,10 @@ pipeline {
     stage('Build') {
         inviroment {
             DB_PORT=3306
-            DB_DATABASE=homestead
-            DB_HOST=127.0.0.1
-            DB_PASSWORD=secret  
-            DB_USERNAME=homestead
+            DB_DATABASE='jalurbelanda'
+            DB_HOST='0.0.0.0'
+            DB_PASSWORD=''  
+            DB_USERNAME='root'
     }
     steps {
         sh 'php --version'
@@ -23,14 +23,14 @@ pipeline {
         sh 'echo  DB_PASSWORD=${DB_PASSWORD} >> .env'
         sh 'echo  DB_USERNAME=${DB_USERNAME} >> .env'
         sh 'php artisan key:generate'
-        sh 'php artisan migrate'  
+        sh 'pwd'  
     }
  }
- stage('Test') {
-    steps {
-        sh 'php artisan test'
-    }
-}
+//  stage('Test') {
+//     steps {
+//         sh 'php artisan test'
+//     }
+// }
     stage('Deploy') {
         steps {
             sh 'echo build succes'
