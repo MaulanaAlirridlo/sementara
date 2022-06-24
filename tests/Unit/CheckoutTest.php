@@ -4,14 +4,14 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
-class CheckOutTesting extends TestCase
+class CheckoutTest extends TestCase
 {
     /**
      * A basic unit test example.
      *
      * @return void
      */
-    public function test_example()
+    public function testCheckout()
     {
         $this->assertTrue(true);
     }
