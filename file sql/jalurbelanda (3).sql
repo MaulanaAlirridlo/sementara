@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2022 pada 17.36
+-- Waktu pembuatan: 24 Jun 2022 pada 07.30
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.14
 
@@ -103,7 +103,10 @@ INSERT INTO `tbl_detail_pengguna` (`id_pengguna`, `nama_lengkap`, `jenis_kelamin
 ('PGN2206094', 'Kenzie Uwais', 'Pria', NULL, NULL, NULL),
 ('PGN2206095', 'Prayogo Budiyanto', 'Pria', NULL, NULL, NULL),
 ('PGN2206096', 'Silvia Oliva Wastuti', 'Wanita', NULL, NULL, NULL),
-('PGN2206107', 'Maulana Alirridlo', 'Pria', 'jl manggar', '082140016999', 2078);
+('PGN2206107', 'Maulana Alirridlo', 'Pria', 'jl manggar', '082140016999', 2078),
+('PGN22061510', 'Voluptatem Fugiat c', 'Pria', NULL, NULL, NULL),
+('PGN2206158', 'Maulana Alirridlo', 'Pria', NULL, NULL, NULL),
+('PGN2206159', 'Nisi omnis laboriosa', 'Wanita', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -125,7 +128,8 @@ CREATE TABLE `tbl_detail_pesanan` (
 
 INSERT INTO `tbl_detail_pesanan` (`id_pesanan`, `id_barang`, `jumlah_beli`, `subtotal_berat`, `subtotal_biaya`) VALUES
 ('PSN2206101', 'BRG2206102', 2, 100000, 2000000),
-('PSN2206102', 'BRG2206101', 1, 10000, 1000000);
+('PSN2206102', 'BRG2206101', 1, 10000, 1000000),
+('PSN2206153', 'BRG2206101', 12, 120000, 12000000);
 
 -- --------------------------------------------------------
 
@@ -7724,6 +7728,13 @@ CREATE TABLE `tbl_keranjang` (
   `subtotal_biaya` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `tbl_keranjang`
+--
+
+INSERT INTO `tbl_keranjang` (`id_pengguna`, `id_barang`, `jumlah_beli`, `subtotal_biaya`) VALUES
+('PGN1809201', 'BRG2206101', 2, 2000000);
+
 -- --------------------------------------------------------
 
 --
@@ -7818,7 +7829,8 @@ CREATE TABLE `tbl_pembayaran` (
 
 INSERT INTO `tbl_pembayaran` (`id`, `id_pesanan`, `id_pengguna`, `id_bank_receiver`, `id_methode`, `bank`, `atas_nama`, `no_rekening`, `foto_bukti`, `status_pembayaran`, `midtrans_id`, `batas_pembayaran`, `tanggal_upload`, `selesai`) VALUES
 (7, 'PSN2206101', 'PGN2206107', 3, 1, 'Bank BRI', 'Maulana', '1099111677', 'PSN2206101.jpg', 1, NULL, '2022-06-11', '2022-06-10 03:35:00', 1),
-(8, 'PSN2206102', 'PGN2206107', 3, 1, 'Permata Bank', 'jhbbhk', '5456', 'PSN2206102.png', 1, NULL, '2022-06-11', '2022-06-10 03:54:04', 1);
+(8, 'PSN2206102', 'PGN2206107', 3, 1, 'Permata Bank', 'jhbbhk', '5456', 'PSN2206102.png', 1, NULL, '2022-06-11', '2022-06-10 03:54:04', 1),
+(9, 'PSN2206153', 'PGN1809201', 3, 1, NULL, NULL, NULL, NULL, 0, NULL, '2022-06-16', '2022-06-15 04:00:49', 0);
 
 -- --------------------------------------------------------
 
@@ -7844,7 +7856,10 @@ INSERT INTO `tbl_pengguna` (`id_pengguna`, `email`, `password`, `tanggal_bergabu
 ('PGN2206094', 'halim.dalimin@example.com', '$2y$04$X/h3mf1ZB1WpH2IvysRgeuQRH93YfKj1pmJ8kqNff2LcBdba8pioO', '2022-06-09 20:30:43'),
 ('PGN2206095', 'yuni.mayasari@example.com', '$2y$04$j1638a.lTxzdU8p79j1IkOZBmRkep9jBq3R6dmof2hBNoGyf71c5a', '2022-06-09 20:35:51'),
 ('PGN2206096', 'halima.simbolon@example.org', '$2y$04$DK1qXbeLP2ccs6aS.Wpm4.aPLexjGmvcxC1Fko1iwZB9XcS4x.AQm', '2022-06-09 21:13:22'),
-('PGN2206107', 'maulana.alirridlo@gmail.com', '$2y$10$na0NBfCHY4SSAmGxEF7vb.Kt04An8kMpa95D9SDoXU8X6PUQPvTXS', '2022-06-10 03:26:23');
+('PGN2206107', 'maulana.alirridlo@gmail.com', '$2y$10$na0NBfCHY4SSAmGxEF7vb.Kt04An8kMpa95D9SDoXU8X6PUQPvTXS', '2022-06-10 03:26:23'),
+('PGN22061510', 'xequgasy@mailinator.com', '$2y$10$IDpiNii87IiNkNVckeIzCuqEfCM0jZ1GMWmJZN7YoWpuvGNPfPukG', '2022-06-15 01:56:27'),
+('PGN2206158', 'maulana@email.com', '$2y$10$UBROJiqYUZ6C9/E2fFVil.tSTITPZcomoZre.ZbD2MFoYQiNfURCq', '2022-06-15 01:31:00'),
+('PGN2206159', 'lediqatov@mailinator.com', '$2y$10$eOqVXHFlky2QgwsCPxfklea0MHZRJ5eg7hTUWGGXCiHUwxxqECyUC', '2022-06-15 01:37:59');
 
 -- --------------------------------------------------------
 
@@ -7878,7 +7893,8 @@ CREATE TABLE `tbl_pesanan` (
 
 INSERT INTO `tbl_pesanan` (`id_pesanan`, `id_pengguna`, `nama_penerima`, `alamat_tujuan`, `no_telepon`, `keterangan`, `kurir`, `layanan`, `kurir_cod`, `ongkos_kirim`, `total_bayar`, `no_resi`, `status_pesanan`, `dibatalkan`, `tanggal_dikirim`, `tanggal_diterima`, `tanggal_pesanan`) VALUES
 ('PSN2206101', 'PGN2206107', 'Maulana Alirridlo', 'jl manggar, Kec. Patrang, Kabupaten Jember, Prov. Jawa Timur', '082140016999', 'hati-hati', 'jne', 'OKE', NULL, 700000, 2000000, '234678902', 5, 0, '2022-06-10 03:06:54', '2022-06-10 03:37:14', '2022-06-10 03:34:10'),
-('PSN2206102', 'PGN2206107', 'Maulana Alirridlo', 'jl manggar, Kec. Patrang, Kabupaten Jember, Prov. Jawa Timur', '082140016999', NULL, 'jnt', 'EZ', NULL, 110000, 1000000, '213DSF232', 5, 0, '2022-06-10 03:06:47', '2022-06-10 03:55:11', '2022-06-10 03:53:42');
+('PSN2206102', 'PGN2206107', 'Maulana Alirridlo', 'jl manggar, Kec. Patrang, Kabupaten Jember, Prov. Jawa Timur', '082140016999', NULL, 'jnt', 'EZ', NULL, 110000, 1000000, '213DSF232', 5, 0, '2022-06-10 03:06:47', '2022-06-10 03:55:11', '2022-06-10 03:53:42'),
+('PSN2206153', 'PGN1809201', 'Iqbal', 'Jl Karimata Gg. Kaca Piring, Kec. Sukowono, Kabupaten Jember, Prov. Jawa Timur', '082298277709', 'harap hati-hati dalam mengirim (lorem ipsum)', 'jne', 'OKE', NULL, 1680000, 12000000, NULL, 0, 0, NULL, NULL, '2022-06-15 04:00:49');
 
 -- --------------------------------------------------------
 
@@ -8320,7 +8336,7 @@ ALTER TABLE `tbl_kurir`
 -- AUTO_INCREMENT untuk tabel `tbl_pembayaran`
 --
 ALTER TABLE `tbl_pembayaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `tbl_provinsi`
