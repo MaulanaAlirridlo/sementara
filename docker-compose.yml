@@ -1,6 +1,9 @@
 version: '3.7'
 services: 
   db:
+  build:
+      context: .
+      dockerfile: dockerApp/Dockerfile
     image: mysql:5.7
     restart: always
     ports: 
@@ -14,7 +17,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerApp/Dockerfile
     image: 'jalurbelanda'
     ports:
     - 8888:80
