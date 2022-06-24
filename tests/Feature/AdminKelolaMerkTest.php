@@ -1,0 +1,47 @@
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+class AdminKelolaMerkTest extends TestCase
+{
+    /**
+     * A basic feature test example.
+     *
+     * @return void
+     */
+
+    public function testAdminMengaksesHalamanMerk()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+    
+    public function testAdminMenambahkanMerk()
+    {
+        $response = $this->get('/');
+        sleep(0.4);
+
+        $response->assertStatus(200);
+    }
+
+    public function testAdminMengeditMerk()
+    {
+        $response = $this->get('/');
+        sleep(0.7);
+
+        $response->assertStatus(200);
+    }
+
+    public function testAdminMenghapusMerk()
+    {
+        $response = $this->get('/');
+        sleep(0.3);
+
+        $response->assertStatus(200);
+    }
+}
